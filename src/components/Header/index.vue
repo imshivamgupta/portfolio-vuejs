@@ -13,7 +13,7 @@
     <div class="header--sidemenu">
       <!-- <button @click="$store.dispatch('toggleDarkMode')">DarkMode</button> -->
       <label>
-        <input type="checkbox" checked />
+        <input type="checkbox" @change="$store.dispatch('toggleDarkMode')" />
         <div class="planet"></div>
         <div class="elements">
           <svg
@@ -81,8 +81,8 @@
 
 <script>
 export default {
-  name: "Header",
-};
+  name: 'Header'
+}
 </script>
 
 <style lang="scss" scoped>
@@ -103,7 +103,7 @@ export default {
         margin-right: 1rem;
       }
       &::before {
-        content: "";
+        content: '';
         display: block;
         margin: auto;
         margin-bottom: -1rem;
@@ -124,6 +124,7 @@ export default {
   }
   &--sidemenu {
     @include flex-center;
+
     span {
       font-size: 1.2rem;
       color: #fff;
@@ -143,7 +144,7 @@ export default {
       -webkit-tap-highlight-color: rgba(255, 255, 255, 0);
     }
 
-    label input[type="checkbox"] {
+    label input[type='checkbox'] {
       height: 0;
       width: 0;
       visibility: hidden;
@@ -171,7 +172,7 @@ export default {
     }
 
     label .planet::after {
-      content: "";
+      content: '';
       background-color: var(--bg-planet-shadow);
       width: 2rem;
       height: 2rem;
@@ -264,90 +265,90 @@ export default {
       transform: translate(0.7em, 0.7em);
     }
 
-    html.bg-dark body {
-      background-color: var(--bg-color);
+    // html.bg-dark body {
+    //   background-color: var(--bg-color);
+    // }
+
+    label input:checked + .planet {
+      --bg-planet-bright: black;
     }
 
-    html label input:checked + .planet {
-      --bg-planet-bright: #d7d7d8;
-    }
-
-    html label input:checked + .planet::after {
+    label input:checked + .planet::after {
       opacity: 1;
       -webkit-transform: translate(0.6em, -0.5em);
       transform: translate(0.6em, -0.5em);
     }
 
-    html label input:checked ~ .elements {
+    label input:checked ~ .elements {
       -webkit-transform: rotate(180deg);
       transform: rotate(180deg);
     }
 
-    html label input:checked ~ .elements svg:first-child {
+    label input:checked ~ .elements svg:first-child {
       -webkit-transform: translate(2em, 1em);
       transform: translate(2em, 1em);
       opacity: 0;
     }
 
-    html label input:checked ~ .elements svg:nth-child(2) {
+    label input:checked ~ .elements svg:nth-child(2) {
       -webkit-transform: translate(3em, 1.5em);
       transform: translate(3em, 1.5em);
       opacity: 0;
     }
 
-    html label input:checked ~ .elements svg:nth-child(3) {
+    label input:checked ~ .elements svg:nth-child(3) {
       -webkit-transform: translate(3em, 2em);
       transform: translate(3em, 2em);
       opacity: 0;
     }
 
-    html label input:checked ~ .elements svg:nth-child(4) {
+    label input:checked ~ .elements svg:nth-child(4) {
       -webkit-transform: translate(3em, 2em);
       transform: translate(3em, 2em);
       opacity: 0;
     }
 
-    html label input:checked ~ .elements svg:nth-child(5) {
+    label input:checked ~ .elements svg:nth-child(5) {
       -webkit-transform: translate(1.9em, 2.6em);
       transform: translate(1.9em, 2.6em);
       width: 0.3em;
       height: 0.3em;
     }
 
-    html label input:checked ~ .elements svg:nth-child(5) circle {
+    label input:checked ~ .elements svg:nth-child(5) circle {
       fill: var(--bg-planet-lightshadow);
     }
 
-    html label input:checked ~ .elements svg:nth-child(6) {
+    label input:checked ~ .elements svg:nth-child(6) {
       -webkit-transform: translate(1.4em, 2.5em);
       transform: translate(1.4em, 2.5em);
       width: 0.3em;
       height: 0.3em;
     }
 
-    html label input:checked ~ .elements svg:nth-child(6) circle {
+    label input:checked ~ .elements svg:nth-child(6) circle {
       fill: var(--bg-planet-lightshadow);
     }
 
-    html label input:checked ~ .elements svg:nth-child(7) {
+    label input:checked ~ .elements svg:nth-child(7) {
       -webkit-transform: translate(1.1em, 1.6em);
       transform: translate(1.1em, 1.6em);
       width: 0.7em;
       height: 0.7em;
     }
 
-    html label input:checked ~ .elements svg:nth-child(7) circle {
+    label input:checked ~ .elements svg:nth-child(7) circle {
       fill: var(--bg-planet-lightshadow);
     }
 
-    html label input:checked ~ .elements svg:nth-child(8) {
+    label input:checked ~ .elements svg:nth-child(8) {
       width: 0.45em;
       height: 0.45em;
       -webkit-transform: translate(1.7em, 2.1em);
       transform: translate(1.7em, 2.1em);
     }
 
-    html label input:checked ~ .elements svg:nth-child(8) circle {
+    label input:checked ~ .elements svg:nth-child(8) circle {
       fill: var(--bg-planet-lightshadow);
     }
   }

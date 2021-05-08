@@ -1,6 +1,6 @@
 <template>
   <div class="homepage">
-    <CircleGradient :style="circleVars" />
+    <CircleGradient :style="circleVars" :threejs="threejs" />
     <CircleGradient :style="circleVarsSM1" />
     <CircleGradient :style="circleVarsSM2" />
     <div class="featured">
@@ -34,16 +34,18 @@
       />
       <span>illustration</span>
     </div>
-    <div class="my-div" style="width: 300px; height: 300px" ref="div"></div>
+    <img src="@/assets/abstract/rotated-dots.svg" alt="" class="rotated-dots" />
+    <img src="@/assets/abstract/cross.svg" alt="" class="cross" />
+    <img src="@/assets/abstract/cross.svg" alt="" class="cross c2" />
+    <img src="@/assets/abstract/wavy.svg" alt="" class="wavy" />
+    <img src="@/assets/abstract/wavy.svg" alt="" class="wavy w2" />
+    <img src="@/assets/abstract/dots.svg" alt="" class="dots" />
   </div>
 </template>
 
 <script>
 import CircleGradient from "@/components/Utilities/CircleGradient";
-import hoverEffect from "hover-effect";
-import image1 from "@/assets/img1.png";
-import image2 from "@/assets/img2.png";
-import Effect from "@/assets/heightMap.png";
+
 export default {
   name: "Home",
   components: {
@@ -69,16 +71,8 @@ export default {
   data() {
     return {
       publicPath: process.env.BASE_URL,
+      threejs: true,
     };
-  },
-  mounted() {
-    new hoverEffect({
-      parent: this.$refs.div,
-      intensity: 0.3,
-      image1: image1,
-      image2: image2,
-      displacementImage: Effect,
-    });
   },
 };
 </script>
@@ -160,12 +154,37 @@ export default {
       }
     }
   }
-  .my-div {
-    border-radius: 500px;
+
+  .rotated-dots {
     position: absolute;
-    bottom: 0;
-    left: 30%;
-    display: none;
+    top: 0;
+    z-index: -1;
+    left: 150px;
+  }
+  .dots {
+    position: absolute;
+    right: 0;
+    top: 0;
+    z-index: -1;
+  }
+  .wavy {
+    position: absolute;
+    z-index: -1;
+    right: 350px;
+    &.w2 {
+      bottom: 50px;
+      left: 150px;
+    }
+  }
+  .cross {
+    position: absolute;
+    z-index: -1;
+    left: 500px;
+    opacity: 0.4;
+    &.c2 {
+      bottom: 50px;
+      left: 120px;
+    }
   }
 }
 </style>
