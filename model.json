@@ -6,19 +6,10 @@
     ":type": "line"
   },
   "blogs": {
-    "custom-line": {
-      ":type": "line",
-      ":richtext": { "type": "boolean" }
-    },
-    "custom-text": {
-      ":type": "text"
-    }
-  },
-  "custom-list": {
+    ":description": "List of blog posts",
     ":items": {
-      "custom-list-item": {
-        ":type": "line"
-      }
+      "title": { ":type": "line", ":richtext": true },
+      "text": { ":type": "text", ":richtext": true }
     }
   }
 }
