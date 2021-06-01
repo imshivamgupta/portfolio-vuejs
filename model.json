@@ -5,6 +5,7 @@
     ":description": "This example text is used as a description.",
     ":type": "line"
   },
+  ":locales": ["en", "hi"],
   "blogs": {
     ":description": "List of blog posts",
     ":items": {
