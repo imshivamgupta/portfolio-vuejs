@@ -1,13 +1,14 @@
 {
-  ":name": "FrontAid CMS Example Model",
-  ":description": "This is a simple example of a FrontAid CMS model. You can change and extend it according to your needs, for example add new fields or restructure it. You can edit this file by cloning this repository and update it with your local editor and push it back into this Git repository. ",
-  "custom-field": {
+  ":name": "Portfolio CMS for Blog System",
+  ":description": "This is my portfolio cms for creating blog and holding dynamic data sets in webapp. ",
+  "main-description": {
     ":description": "This example text is used as a description.",
     ":type": "line"
   },
-  "custom-object": {
+  "blogs": {
     "custom-line": {
-      ":type": "line"
+      ":type": "line",
+      ":richtext": { "type": "boolean" }
     },
     "custom-text": {
       ":type": "text"
