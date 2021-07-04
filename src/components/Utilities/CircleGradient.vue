@@ -21,7 +21,7 @@
 import hoverEffect from 'hover-effect'
 import image1 from '@/assets/normal.svg'
 import image2 from '@/assets/hire.svg'
-import Effect from '@/assets/dot.jpg'
+import Effect from '@/assets/heightMap.png'
 export default {
   name: 'Circle-Gradient',
   props: ['threejs'],
@@ -56,12 +56,14 @@ export default {
   );
   border-radius: 50%;
   position: relative;
+  cursor: pointer;
   img {
     position: absolute;
     right: 50%;
     bottom: 10%;
     width: 90%;
     height: 90%;
+    pointer-events: none;
   }
   animation: slow-motion 4s ease-in-out infinite none alternate running;
   ::v-deep canvas {

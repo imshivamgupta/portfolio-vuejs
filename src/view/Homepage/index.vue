@@ -6,8 +6,8 @@
     <div class="featured">
       <div class="emoji">✋</div>
       <div class="info">
-        <span>Hello, I am</span>
-        <h1>John Doe</h1>
+        <span>Hello, There</span>
+        <h1>Welcome</h1>
       </div>
     </div>
     <div class="highlight first">
@@ -123,6 +123,10 @@ export default {
     box-shadow: 30px 30px 60px #c9ced3, -30px -30px 60px #ffffff;
     @include flex-center;
     display: inline-flex;
+    span {
+      font-weight: 600;
+    }
+
     .emoji {
       font-size: 3rem;
       margin-right: 1rem;
