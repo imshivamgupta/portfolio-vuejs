@@ -7,7 +7,7 @@
       <div class="emoji">✋</div>
       <div class="info">
         <span>Hello, I am</span>
-        <h1>Shivam</h1>
+        <h1>John Doe</h1>
       </div>
     </div>
     <div class="highlight first">
@@ -44,37 +44,56 @@
 </template>
 
 <script>
-import CircleGradient from "@/components/Utilities/CircleGradient";
-
+import CircleGradient from '@/components/Utilities/CircleGradient'
+import { gsap, Power3 } from 'gsap'
 export default {
-  name: "Home",
+  name: 'Home',
   components: {
-    CircleGradient,
+    CircleGradient
   },
   computed: {
     circleVars() {
       return {
-        "--width": "500px",
-      };
+        '--width': '500px'
+      }
     },
     circleVarsSM1() {
       return {
-        "--width": "80px",
-      };
+        '--width': '80px'
+      }
     },
     circleVarsSM2() {
       return {
-        "--width": "150px",
-      };
-    },
+        '--width': '150px'
+      }
+    }
   },
   data() {
     return {
       publicPath: process.env.BASE_URL,
-      threejs: true,
-    };
+      threejs: true
+    }
   },
-};
+  created() {
+    window.addEventListener('load', this.onWindowLoad)
+  },
+  methods: {
+    onWindowLoad() {
+      this.$emit('loaded')
+      this.imageAnim()
+    },
+    imageAnim() {
+      gsap.from('.highlight,.circle', {
+        alpha: 0,
+        duration: 1,
+        delay: 1,
+        stagger: 0.1,
+        ease: Power3.easeInOut
+      })
+    }
+  },
+  mounted() {}
+}
 </script>
 
 <style lang="scss" scoped>
@@ -129,12 +148,12 @@ export default {
     }
     &.second {
       right: 0;
-      top: 50%;
+      top: 40%;
       transform: translateY(-50%);
     }
     &.third {
       bottom: 10%;
-      right: 280px;
+      right: 200px;
     }
     .service-img {
       border-radius: 500px;

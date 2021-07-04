@@ -1,57 +1,67 @@
 <template>
   <div id="app">
     <Container>
-      <Header :darkMode="darkMode" />
+      <Header :darkMode="darkMode" :status="loaded" />
     </Container>
     <Container>
       <transition name="slither">
-        <router-view />
+        <router-view @loaded="windowLoaded" />
       </transition>
     </Container>
     <SocialMedia />
+    <Loader :status="loaded"></Loader>
   </div>
 </template>
 
 <script>
-import { mapState } from "vuex";
-import Header from "@/components/Header";
-import Container from "@/components/Utilities/Container";
-import SocialMedia from "@/components/Utilities/SocialMedia";
+import { mapState } from 'vuex'
+import Header from '@/components/Header'
+import Container from '@/components/Utilities/Container'
+import SocialMedia from '@/components/Utilities/SocialMedia'
+import Loader from '@/components/Loader/Fullscreen'
 export default {
-  name: "App",
+  name: 'App',
   components: {
     Header,
     Container,
     SocialMedia,
+    Loader
   },
   data() {
     return {
-      bgColor: "#00ff00",
-      height: "60",
-    };
+      bgColor: '#00ff00',
+      height: '60',
+      loaded: false
+    }
   },
   computed: {
-    ...mapState(["darkMode"]),
+    ...mapState(['darkMode']),
     headerVars() {
       return {
-        "--bg-color": this.bgColor,
-        "--height": this.height + "px",
-      };
-    },
+        '--bg-color': this.bgColor,
+        '--height': this.height + 'px'
+      }
+    }
   },
   created() {
-    console.log("created");
+    console.log('created')
     this.unsubscribe = this.$store.subscribe((mutation, { user }) => {
-      if (mutation.type === "darkMode") {
-        const htmlDOM = window.document.querySelector("html");
-        htmlDOM.setAttribute("theme", user.darkMode ? "dark" : "lite");
+      if (mutation.type === 'darkMode') {
+        const htmlDOM = window.document.querySelector('html')
+        htmlDOM.setAttribute('theme', user.darkMode ? 'dark' : 'lite')
       }
-    });
+    })
   },
   beforeDestroy() {
-    this.unsubscribe();
+    this.unsubscribe()
   },
-};
+  methods: {
+    windowLoaded() {
+      this.loaded = true
+      console.log('window loaded app.vue')
+    }
+  }
+}
 </script>
 
 <style lang="scss">
@@ -70,4 +80,3 @@ export default {
   transform: translateY(0);
 }
 </style>
-

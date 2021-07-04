@@ -1,5 +1,5 @@
 {
-  "name": "Shivam Gupta",
+  "name": "portfolio",
   "version": "0.1.0",
   "private": true,
   "scripts": {
@@ -11,6 +11,7 @@
     "axios": "^0.20.0",
     "core-js": "^3.6.5",
     "firebase": "^7.19.1",
+    "gsap": "^3.7.0",
     "hover-effect": "^1.1.0",
     "vue": "^2.6.11",
     "vue-router": "^3.4.3",

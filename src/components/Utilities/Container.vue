@@ -5,12 +5,12 @@
 </template>
 
 <script>
-export default {};
+export default {}
 </script>
 
 <style lang="scss" scoped>
 .container {
-  max-width: 1280px;
+  max-width: 1200px;
   margin: auto;
 }
 </style>
